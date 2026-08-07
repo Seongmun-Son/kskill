@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>학생 출석부</title>
+<style>
+  :root {
+    --bg: #f7f8fa;
+    --card-bg: #ffffff;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --accent: #2563eb;
+    --present: #16a34a;
+    --late: #d97706;
+    --absent: #dc2626;
+    --early: #7c3aed;
+    --sick: #0891b2;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --border: #334155;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 24px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Pretendard", "Malgun Gothic", -apple-system, sans-serif;
+  }
+  .card {
+    max-width: 900px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  h1 {
+    font-size: 1.4rem;
+    margin: 0 0 4px;
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  th {
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 0.82rem;
+  }
+  tbody tr:hover {
+    background: rgba(37, 99, 235, 0.05);
+  }
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #fff;
+  }
+  .badge.출석 { background: var(--present); }
+  .badge.지각 { background: var(--late); }
+  .badge.결석 { background: var(--absent); }
+  .badge.조퇴 { background: var(--early); }
+  .badge.병결 { background: var(--sick); }
+  .table-wrap {
+    overflow-x: auto;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>학생 출석부</h1>
+    <div class="subtitle">3학년 1반 · Supabase <code>attendance</code> 테이블 연동 데이터</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>학번</th>
+            <th>번호</th>
+            <th>이름</th>
+            <th>반</th>
+            <th>날짜</th>
+            <th>상태</th>
+          </tr>
+        </thead>
+        <tbody id="attendance-body">
+          <tr><td>20260101</td><td>1</td><td>김민준</td><td>3학년 1반</td><td>2026-08-03</td><td><span class="badge 출석">출석</span></td></tr>
+          <tr><td>20260102</td><td>2</td><td>이서연</td><td>3학년 1반</td><td>2026-08-03</td><td><span class="badge 출석">출석</span></td></tr>
+          <tr><td>20260103</td><td>3</td><td>박도윤</td><td>3학년 1반</td><td>2026-08-03</td><td><span class="badge 지각">지각</span></td></tr>
+          <tr><td>20260104</td><td>4</td><td>최지우</td><td>3학년 1반</td><td>2026-08-04</td><td><span class="badge 출석">출석</span></td></tr>
+          <tr><td>20260105</td><td>5</td><td>정하은</td><td>3학년 1반</td><td>2026-08-04</td><td><span class="badge 결석">결석</span></td></tr>
+          <tr><td>20260106</td><td>6</td><td>강시우</td><td>3학년 1반</td><td>2026-08-04</td><td><span class="badge 출석">출석</span></td></tr>
+          <tr><td>20260107</td><td>7</td><td>조유진</td><td>3학년 1반</td><td>2026-08-05</td><td><span class="badge 출석">출석</span></td></tr>
+          <tr><td>20260108</td><td>8</td><td>윤예준</td><td>3학년 1반</td><td>2026-08-05</td><td><span class="badge 조퇴">조퇴</span></td></tr>
+          <tr><td>20260109</td><td>9</td><td>장서윤</td><td>3학년 1반</td><td>2026-08-05</td><td><span class="badge 출석">출석</span></td></tr>
+          <tr><td>20260110</td><td>10</td><td>임하준</td><td>3학년 1반</td><td>2026-08-06</td><td><span class="badge 출석">출석</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
